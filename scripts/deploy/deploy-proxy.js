@@ -5,7 +5,8 @@ async function main() {
   const [deployer] = await ethers.getSigners();
 
   console.log("Deploying contracts with the account:", deployer.address);
-  const feeReceipient = '0x7c5d333f2ce3e919E5B17a237f223D6bAa35a345';
+  // const feeReceipient = '0x7c5d333f2ce3e919E5B17a237f223D6bAa35a345';
+  const feeReceipient = '0x46D45Fc0A462FCc234e8f410FdDeFF02142fC029';
   const weth = '0x79538ce1712498fD1b9A9861E62acB257d7506fC';
 
   const ERC721NFTMarketplace = await ethers.getContractFactory("ERC721NFTMarketplace");
