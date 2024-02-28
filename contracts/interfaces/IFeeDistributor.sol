@@ -14,4 +14,5 @@ interface IFeeDistributor {
   function calculateFee(uint price, address nft, uint tokenId) external view returns (uint, uint, uint, uint);
   function protocolFeeRecipient() external view returns (address);
   function protocolFeePercent() external view returns (uint);
+  function calculateBuyerProtocolFee(uint price) external view returns (uint);
 }

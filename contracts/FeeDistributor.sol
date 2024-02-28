@@ -142,6 +142,16 @@ contract FeeDistributor is OwnableUpgradeable {
     return (feeSeller, feeBuyer, royaltiesFee, netReceived);
   }
 
+  function calculateBuyerProtocolFee(uint price) external view returns (uint) {
+    uint feeBuyer = 0;
+
+    if (protocolFeeRecipient != address(0)) {
+      feeBuyer = price.mul(protocolFeePercent.mul(uint(10000).sub(feeRatioSellerBuyer)).div(10000)).div(10000);
+    }
+
+    return (feeBuyer);
+  }
+
   function _calculateRoyalties(
     uint price,
     LibStructsMarketplace.Part[] memory royalties
